@@ -37,6 +37,9 @@ kotlin {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
         }
+        wasmJsMain.dependencies {
+            implementation(npm("@js-joda/timezone","2.3.0"))
+        }
         commonMain.dependencies {
             implementation(compose.runtime)
             implementation(compose.foundation)
@@ -44,6 +47,7 @@ kotlin {
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
+            implementation(libs.kotlin.date.time)
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
@@ -86,6 +90,9 @@ android {
     dependencies {
         debugImplementation(compose.uiTooling)
     }
+}
+dependencies {
+    implementation(libs.kotlin.date.time)
 }
 
 compose.desktop {
