@@ -10,15 +10,10 @@ fun todayDate(): String {
     return now.toLocalDateTime(zone).format()
 }
 
-fun currentTimeAt(location: String): String? {
+fun currentTimeAt(location: String, timeZone: TimeZone): String {
     fun LocalTime.formatted() = "$hour:$minute:$second"
 
-    return try {
-        val time = Clock.System.now()
-        val zone = TimeZone.of(location)
-        val localTime = time.toLocalDateTime(zone).time
-        "The time in $location is ${localTime.formatted()}"
-    } catch (e: IllegalTimeZoneException) {
-        null
-    }
+    val time = Clock.System.now()
+    val localTime = time.toLocalDateTime(timeZone).time
+    return "The time in $location is ${localTime.formatted()}"
 }
