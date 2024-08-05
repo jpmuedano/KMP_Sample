@@ -38,9 +38,6 @@ kotlin {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
         }
-        wasmJsMain.dependencies {
-            implementation(npm("@js-joda/timezone","2.3.0"))
-        }
         commonMain.dependencies {
             implementation(compose.runtime)
             implementation(compose.foundation)
